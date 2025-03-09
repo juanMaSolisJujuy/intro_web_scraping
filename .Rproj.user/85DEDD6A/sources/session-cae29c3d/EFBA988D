@@ -3,7 +3,7 @@
     "path": "~/JUAN/BYDE/PROYECTOS/WEB - SCRAPING/introWebScraping/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "1070495426",
+    "hash": "877386838",
     "contents": "",
     "dirty": false,
     "created": 1739202307240.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "16,30",
-        "scrollLine": "14"
+        "cursorPosition": "2,18",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1741555843,
+    "lastKnownWriteTime": 1741557084,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1741555843628,
+    "last_content_update": 1741557084082,
     "read_only": false,
     "read_only_alternatives": []
 }
