@@ -1,4 +1,4 @@
-# Aspectos normativos y éticos
+# Aspectos normativos y éticos del web scraping
 
 En la actualidad no existe un marco legal específico para el control de la actividad vinculada con el *web scraping*. Sin embargo, se pueden nombrar los siguientes aspectos normativos y leyes transversales a esta actividad:
 

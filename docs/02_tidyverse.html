@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Manipulación de tablas: tidyverse – Introducción a Web Scraping para el análisis estadístico con R</title>
+<title>2&nbsp; Manipulación de tablas: tidyverse – Introducción a Web Scraping para el análisis estadístico con R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04_web_scrap_pag_est.html" rel="next">
-<link href="./02_normas_etica.html" rel="prev">
+<link href="./03_normas_etica.html" rel="next">
+<link href="./01_intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_tidyverse.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_tidyverse.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -154,14 +154,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_normas_etica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos</span></span></a>
+  <a href="./02_tidyverse.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_tidyverse.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span></a>
+  <a href="./03_normas_etica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos del web scraping</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,15 +186,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#importar" id="toc-importar" class="nav-link active" data-scroll-target="#importar"><span class="header-section-number">3.0.1</span> Importar</a></li>
-  <li><a href="#añadirmodificar-columnas" id="toc-añadirmodificar-columnas" class="nav-link" data-scroll-target="#añadirmodificar-columnas"><span class="header-section-number">3.0.2</span> Añadir/modificar columnas</a></li>
-  <li><a href="#renombrar-columnas" id="toc-renombrar-columnas" class="nav-link" data-scroll-target="#renombrar-columnas"><span class="header-section-number">3.0.3</span> Renombrar columnas</a></li>
-  <li><a href="#medidas-de-resumen-agrupadas" id="toc-medidas-de-resumen-agrupadas" class="nav-link" data-scroll-target="#medidas-de-resumen-agrupadas"><span class="header-section-number">3.0.4</span> Medidas de resumen agrupadas</a></li>
-  <li><a href="#combinación-de-funciones" id="toc-combinación-de-funciones" class="nav-link" data-scroll-target="#combinación-de-funciones"><span class="header-section-number">3.0.5</span> Combinación de funciones</a></li>
-  <li><a href="#ordenar" id="toc-ordenar" class="nav-link" data-scroll-target="#ordenar"><span class="header-section-number">3.0.6</span> Ordenar</a></li>
-  <li><a href="#selección-de-columnas" id="toc-selección-de-columnas" class="nav-link" data-scroll-target="#selección-de-columnas"><span class="header-section-number">3.0.7</span> Selección de columnas</a></li>
-  <li><a href="#selección-de-filasfiltros" id="toc-selección-de-filasfiltros" class="nav-link" data-scroll-target="#selección-de-filasfiltros"><span class="header-section-number">3.0.8</span> Selección de filas/filtros</a></li>
-  <li><a href="#tablas-horizontales-y-verticales" id="toc-tablas-horizontales-y-verticales" class="nav-link" data-scroll-target="#tablas-horizontales-y-verticales"><span class="header-section-number">3.0.9</span> Tablas horizontales y verticales</a></li>
+  <li><a href="#importar" id="toc-importar" class="nav-link active" data-scroll-target="#importar"><span class="header-section-number">2.0.1</span> Importar</a></li>
+  <li><a href="#añadirmodificar-columnas" id="toc-añadirmodificar-columnas" class="nav-link" data-scroll-target="#añadirmodificar-columnas"><span class="header-section-number">2.0.2</span> Añadir/modificar columnas</a></li>
+  <li><a href="#renombrar-columnas" id="toc-renombrar-columnas" class="nav-link" data-scroll-target="#renombrar-columnas"><span class="header-section-number">2.0.3</span> Renombrar columnas</a></li>
+  <li><a href="#medidas-de-resumen-agrupadas" id="toc-medidas-de-resumen-agrupadas" class="nav-link" data-scroll-target="#medidas-de-resumen-agrupadas"><span class="header-section-number">2.0.4</span> Medidas de resumen agrupadas</a></li>
+  <li><a href="#combinación-de-funciones" id="toc-combinación-de-funciones" class="nav-link" data-scroll-target="#combinación-de-funciones"><span class="header-section-number">2.0.5</span> Combinación de funciones</a></li>
+  <li><a href="#ordenar" id="toc-ordenar" class="nav-link" data-scroll-target="#ordenar"><span class="header-section-number">2.0.6</span> Ordenar</a></li>
+  <li><a href="#selección-de-columnas" id="toc-selección-de-columnas" class="nav-link" data-scroll-target="#selección-de-columnas"><span class="header-section-number">2.0.7</span> Selección de columnas</a></li>
+  <li><a href="#selección-de-filasfiltros" id="toc-selección-de-filasfiltros" class="nav-link" data-scroll-target="#selección-de-filasfiltros"><span class="header-section-number">2.0.8</span> Selección de filas/filtros</a></li>
+  <li><a href="#tablas-horizontales-y-verticales" id="toc-tablas-horizontales-y-verticales" class="nav-link" data-scroll-target="#tablas-horizontales-y-verticales"><span class="header-section-number">2.0.9</span> Tablas horizontales y verticales</a></li>
   </ul>
 </nav>
     </div>
@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></h1>
 </div>
 
 
@@ -255,8 +255,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>El llamado a la librería con la función <strong>library()</strong> debe realizarse <font style="color:YellowGreen;">siempre</font>.</p>
 <p>En esta clase, trabajaremos con el set de datos <font style="color:YellowGreen;">crecimientoPlantas</font>. Debido a la gran cantidad de funciones provistas por las librerías de tidyverse, utilizaremos solo algunas de las más frecuentes.</p>
-<section id="importar" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="importar"><span class="header-section-number">3.0.1</span> Importar</h3>
+<section id="importar" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="importar"><span class="header-section-number">2.0.1</span> Importar</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
@@ -273,8 +273,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="añadirmodificar-columnas" class="level3" data-number="3.0.2">
-<h3 data-number="3.0.2" class="anchored" data-anchor-id="añadirmodificar-columnas"><span class="header-section-number">3.0.2</span> Añadir/modificar columnas</h3>
+<section id="añadirmodificar-columnas" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="añadirmodificar-columnas"><span class="header-section-number">2.0.2</span> Añadir/modificar columnas</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -301,8 +301,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="renombrar-columnas" class="level3" data-number="3.0.3">
-<h3 data-number="3.0.3" class="anchored" data-anchor-id="renombrar-columnas"><span class="header-section-number">3.0.3</span> Renombrar columnas</h3>
+<section id="renombrar-columnas" class="level3" data-number="2.0.3">
+<h3 data-number="2.0.3" class="anchored" data-anchor-id="renombrar-columnas"><span class="header-section-number">2.0.3</span> Renombrar columnas</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
@@ -328,8 +328,8 @@ Tip
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="medidas-de-resumen-agrupadas" class="level3" data-number="3.0.4">
-<h3 data-number="3.0.4" class="anchored" data-anchor-id="medidas-de-resumen-agrupadas"><span class="header-section-number">3.0.4</span> Medidas de resumen agrupadas</h3>
+<section id="medidas-de-resumen-agrupadas" class="level3" data-number="2.0.4">
+<h3 data-number="2.0.4" class="anchored" data-anchor-id="medidas-de-resumen-agrupadas"><span class="header-section-number">2.0.4</span> Medidas de resumen agrupadas</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.2</span> <span class="sc">|&gt;</span></span>
@@ -349,8 +349,8 @@ Tip
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="combinación-de-funciones" class="level3" data-number="3.0.5">
-<h3 data-number="3.0.5" class="anchored" data-anchor-id="combinación-de-funciones"><span class="header-section-number">3.0.5</span> Combinación de funciones</h3>
+<section id="combinación-de-funciones" class="level3" data-number="2.0.5">
+<h3 data-number="2.0.5" class="anchored" data-anchor-id="combinación-de-funciones"><span class="header-section-number">2.0.5</span> Combinación de funciones</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.2</span> <span class="sc">|&gt;</span></span>
@@ -365,8 +365,8 @@ Tip
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">promedio =</span> <span class="fu">mean</span>(peso))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="ordenar" class="level3" data-number="3.0.6">
-<h3 data-number="3.0.6" class="anchored" data-anchor-id="ordenar"><span class="header-section-number">3.0.6</span> Ordenar</h3>
+<section id="ordenar" class="level3" data-number="2.0.6">
+<h3 data-number="2.0.6" class="anchored" data-anchor-id="ordenar"><span class="header-section-number">2.0.6</span> Ordenar</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.2</span> <span class="sc">|&gt;</span></span>
@@ -383,8 +383,8 @@ Tip
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span> media)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="selección-de-columnas" class="level3" data-number="3.0.7">
-<h3 data-number="3.0.7" class="anchored" data-anchor-id="selección-de-columnas"><span class="header-section-number">3.0.7</span> Selección de columnas</h3>
+<section id="selección-de-columnas" class="level3" data-number="2.0.7">
+<h3 data-number="2.0.7" class="anchored" data-anchor-id="selección-de-columnas"><span class="header-section-number">2.0.7</span> Selección de columnas</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.2</span> <span class="sc">|&gt;</span></span>
@@ -394,8 +394,8 @@ Tip
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>) <span class="co"># Selección por índice de columna</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="selección-de-filasfiltros" class="level3" data-number="3.0.8">
-<h3 data-number="3.0.8" class="anchored" data-anchor-id="selección-de-filasfiltros"><span class="header-section-number">3.0.8</span> Selección de filas/filtros</h3>
+<section id="selección-de-filasfiltros" class="level3" data-number="2.0.8">
+<h3 data-number="2.0.8" class="anchored" data-anchor-id="selección-de-filasfiltros"><span class="header-section-number">2.0.8</span> Selección de filas/filtros</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.2</span> <span class="sc">|&gt;</span></span>
@@ -445,8 +445,8 @@ Tip
 <span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_tail</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tablas-horizontales-y-verticales" class="level3" data-number="3.0.9">
-<h3 data-number="3.0.9" class="anchored" data-anchor-id="tablas-horizontales-y-verticales"><span class="header-section-number">3.0.9</span> Tablas horizontales y verticales</h3>
+<section id="tablas-horizontales-y-verticales" class="level3" data-number="2.0.9">
+<h3 data-number="2.0.9" class="anchored" data-anchor-id="tablas-horizontales-y-verticales"><span class="header-section-number">2.0.9</span> Tablas horizontales y verticales</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dv <span class="ot">=</span> datos<span class="fl">.2</span> <span class="sc">|&gt;</span></span>
@@ -947,13 +947,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_normas_etica.html" class="pagination-link" aria-label="Aspectos normativos y éticos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos</span></span>
+      <a href="./01_intro.html" class="pagination-link" aria-label="Introducción al manejo de R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al manejo de R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04_web_scrap_pag_est.html" class="pagination-link" aria-label="Bases para el &quot;raspado web&quot; (*web scraping*) en páginas estáticas.">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases para el “raspado web” (<em>web scraping</em>) en páginas estáticas.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_normas_etica.html" class="pagination-link" aria-label="Aspectos normativos y éticos del web scraping">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos del web scraping</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

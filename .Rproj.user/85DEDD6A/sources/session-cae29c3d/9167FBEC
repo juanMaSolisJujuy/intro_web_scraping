@@ -1,7 +1,7 @@
 {
     "id": "9167FBEC",
-    "path": "~/JUAN/BYDE/PROYECTOS/WEB - SCRAPING/introWebScraping/03_tidyverse.qmd",
-    "project_path": "03_tidyverse.qmd",
+    "path": "~/JUAN/BYDE/PROYECTOS/WEB - SCRAPING/introWebScraping/02_tidyverse.qmd",
+    "project_path": "02_tidyverse.qmd",
     "type": "quarto_markdown",
     "hash": "3519405275",
     "contents": "",
@@ -15,11 +15,11 @@
         "Source": "Source"
     },
     "folds": "",
-    "lastKnownWriteTime": 1739284233,
+    "lastKnownWriteTime": 1741558728,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1739284233,
+    "last_content_update": 1741558728,
     "read_only": false,
     "read_only_alternatives": []
 }

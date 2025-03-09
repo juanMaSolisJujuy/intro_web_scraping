@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Aspectos normativos y éticos – Introducción a Web Scraping para el análisis estadístico con R</title>
+<title>3&nbsp; Aspectos normativos y éticos del web scraping – Introducción a Web Scraping para el análisis estadístico con R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03_tidyverse.html" rel="next">
-<link href="./01_intro.html" rel="prev">
+<link href="./04_web_scrap_pag_est.html" rel="next">
+<link href="./02_tidyverse.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_normas_etica.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_normas_etica.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos del web scraping</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -154,14 +154,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_normas_etica.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos</span></span></a>
+  <a href="./02_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span></a>
+  <a href="./03_normas_etica.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos del web scraping</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,11 +186,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#protección-de-datos-personales" id="toc-protección-de-datos-personales" class="nav-link active" data-scroll-target="#protección-de-datos-personales"><span class="header-section-number">2.1</span> Protección de Datos Personales</a></li>
-  <li><a href="#código-civil-y-comercial-de-la-nación.-contratos-de-adhesión." id="toc-código-civil-y-comercial-de-la-nación.-contratos-de-adhesión." class="nav-link" data-scroll-target="#código-civil-y-comercial-de-la-nación.-contratos-de-adhesión."><span class="header-section-number">2.2</span> Código Civil y Comercial de la Nación. Contratos de Adhesión.</a></li>
-  <li><a href="#propiedad-intelectual-y-derechos-de-autor" id="toc-propiedad-intelectual-y-derechos-de-autor" class="nav-link" data-scroll-target="#propiedad-intelectual-y-derechos-de-autor"><span class="header-section-number">2.3</span> Propiedad Intelectual y Derechos de Autor</a></li>
-  <li><a href="#delitos-informáticos" id="toc-delitos-informáticos" class="nav-link" data-scroll-target="#delitos-informáticos"><span class="header-section-number">2.4</span> Delitos Informáticos</a></li>
-  <li><a href="#archivos-robots.txt" id="toc-archivos-robots.txt" class="nav-link" data-scroll-target="#archivos-robots.txt"><span class="header-section-number">2.5</span> Archivos <em>robots.txt</em></a></li>
+  <li><a href="#protección-de-datos-personales" id="toc-protección-de-datos-personales" class="nav-link active" data-scroll-target="#protección-de-datos-personales"><span class="header-section-number">3.1</span> Protección de Datos Personales</a></li>
+  <li><a href="#código-civil-y-comercial-de-la-nación.-contratos-de-adhesión." id="toc-código-civil-y-comercial-de-la-nación.-contratos-de-adhesión." class="nav-link" data-scroll-target="#código-civil-y-comercial-de-la-nación.-contratos-de-adhesión."><span class="header-section-number">3.2</span> Código Civil y Comercial de la Nación. Contratos de Adhesión.</a></li>
+  <li><a href="#propiedad-intelectual-y-derechos-de-autor" id="toc-propiedad-intelectual-y-derechos-de-autor" class="nav-link" data-scroll-target="#propiedad-intelectual-y-derechos-de-autor"><span class="header-section-number">3.3</span> Propiedad Intelectual y Derechos de Autor</a></li>
+  <li><a href="#delitos-informáticos" id="toc-delitos-informáticos" class="nav-link" data-scroll-target="#delitos-informáticos"><span class="header-section-number">3.4</span> Delitos Informáticos</a></li>
+  <li><a href="#archivos-robots.txt" id="toc-archivos-robots.txt" class="nav-link" data-scroll-target="#archivos-robots.txt"><span class="header-section-number">3.5</span> Archivos <em>robots.txt</em></a></li>
   </ul>
 </nav>
     </div>
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos del web scraping</span></h1>
 </div>
 
 
@@ -226,8 +226,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div>
 <p>&nbsp;</p>
-<section id="protección-de-datos-personales" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="protección-de-datos-personales"><span class="header-section-number">2.1</span> Protección de Datos Personales</h2>
+<section id="protección-de-datos-personales" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="protección-de-datos-personales"><span class="header-section-number">3.1</span> Protección de Datos Personales</h2>
 <p>La ley <a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm"><strong>25.326</strong></a> tiene <em>tiene por objeto la protección integral de los datos personales asentados en archivos, registros, bancos de datos, u otros medios técnicos de tratamiento de datos, sean éstos públicos, o privados destinados a dar informes, para garantizar el derecho al honor y a la intimidad de las personas, así como también el acceso a la información que sobre las mismas se registre, de conformidad a lo establecido en el artículo 43, párrafo tercero de la Constitución Nacional.</em></p>
 <p>En Argentina, la <strong>Agencia de Acceso a la Información Pública (AAIP)</strong>, que es un organizmo descentralizado que depende de la Jefatura de Ganites de Ministros de la Nación, es la encargada de velar por el cumplimiento de la Ley de Protección de Datos Personales.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -246,22 +246,22 @@ AAIP
 </div>
 </div>
 </section>
-<section id="código-civil-y-comercial-de-la-nación.-contratos-de-adhesión." class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="código-civil-y-comercial-de-la-nación.-contratos-de-adhesión."><span class="header-section-number">2.2</span> Código Civil y Comercial de la Nación. Contratos de Adhesión.</h2>
+<section id="código-civil-y-comercial-de-la-nación.-contratos-de-adhesión." class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="código-civil-y-comercial-de-la-nación.-contratos-de-adhesión."><span class="header-section-number">3.2</span> Código Civil y Comercial de la Nación. Contratos de Adhesión.</h2>
 <p>El <strong>CCCN</strong> se encuentra regido a través de la <a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/235000-239999/235975/texact.htm#21"><strong>Ley 26.994</strong></a>. La Sección 2<sup>da</sup> trata sobre los <em>Contratos celebrados por adhesión a cláusulas generales predispuestas</em>.</p>
 <p>El <strong>Artículo 984</strong> establece que <em>El contrato por adhesión es aquel mediante el cual uno de los contratantes adhiere a cláusulas generales predispuestas unilateralmente, por la otra parte o por un tercero, sin que el adherente haya participado en su redacción.</em> Estas y otras disposiciones vinculadas pueden aplicarse a los <strong>Términos y Condiciones de Uso</strong> de Sitios Web privados.</p>
 </section>
-<section id="propiedad-intelectual-y-derechos-de-autor" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="propiedad-intelectual-y-derechos-de-autor"><span class="header-section-number">2.3</span> Propiedad Intelectual y Derechos de Autor</h2>
+<section id="propiedad-intelectual-y-derechos-de-autor" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="propiedad-intelectual-y-derechos-de-autor"><span class="header-section-number">3.3</span> Propiedad Intelectual y Derechos de Autor</h2>
 <p>La <a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/40000-44999/42755/texact.htm"><strong>Ley 11.723</strong></a> (y sus modificaciones) sobre el <strong>Régimen Legal de la Propiedad Intelectual</strong>, establece que <em>A los efectos de la presente ley, las obras científicas, literarias y artísticas comprenden los escritos de toda naturaleza y extensión, entre ellos los programas de computación fuente y objeto; las compilaciones de datos o de otros materiales; las obras dramáticas, composiciones musicales, dramático-musicales; las cinematográficas, coreográficas y pantomímicas; las obras de dibujo, pintura, escultura, arquitectura; modelos y obras de arte o ciencia aplicadas al comercio o a la industria; los impresos, planos y mapas; los plásticos, fotografías, grabados y fonogramas; en fin, toda producción científica, literaria, artística o didáctica, sea cual fuere el procedimiento de reproducción.</em></p>
 <p>El <em>Art. 55 bis</em> establece que <em>La explotación de la propiedad intelectual sobre los programas de computación incluirá entre otras formas los contratos de licencia para su uso o reproducción.</em></p>
 </section>
-<section id="delitos-informáticos" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="delitos-informáticos"><span class="header-section-number">2.4</span> Delitos Informáticos</h2>
+<section id="delitos-informáticos" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="delitos-informáticos"><span class="header-section-number">3.4</span> Delitos Informáticos</h2>
 <p>El <strong>Código Penal de la Nación Argentina</strong> (<a href="https://www.argentina.gob.ar/normativa/nacional/ley-11179-16546/actualizacion#17"><strong>Ley 11.179</strong></a> y sus modificaciones), establece en su <em>Artículo 153 bis</em>: <em>Será reprimido con prisión de quince (15) días a seis (6) meses, si no resultare un delito más severamente penado, el que a sabiendas accediere por cualquier medio, sin la debida autorización o excediendo la que posea, a un sistema o dato informático de acceso restringido. La pena será de un (1) mes a un (1) año de prisión cuando el acceso fuese en perjuicio de un sistema o dato informático de un organismo público estatal o de un proveedor de servicios públicos o de servicios financieros.</em></p>
 </section>
-<section id="archivos-robots.txt" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="archivos-robots.txt"><span class="header-section-number">2.5</span> Archivos <em>robots.txt</em></h2>
+<section id="archivos-robots.txt" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="archivos-robots.txt"><span class="header-section-number">3.5</span> Archivos <em>robots.txt</em></h2>
 <p>Los archivos <code>robots.txt</code> sirven principalmente para gestionar el tráfico de los rastreadores a un sitio web, aunque también suelen usarse para que los motores de búsqueda no rastreen determinados archivos.</p>
 <p>Básicamente, consiste en aplicar el <a href="https://www.robotstxt.org/robotstxt.html"><code>Protocolo de exclusión de robots</code></a>.</p>
 <p>Para acceder al archivo <code>robots.txt</code>, se debe añadir “robots.txt” a continuación de la url principal. Por ejemplo:</p>
@@ -828,13 +828,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_intro.html" class="pagination-link" aria-label="Introducción al manejo de R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al manejo de R</span></span>
+      <a href="./02_tidyverse.html" class="pagination-link" aria-label="Manipulación de tablas: tidyverse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03_tidyverse.html" class="pagination-link" aria-label="Manipulación de tablas: tidyverse">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04_web_scrap_pag_est.html" class="pagination-link" aria-label="Bases para el &quot;raspado web&quot; (*web scraping*) en páginas estáticas.">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases para el “raspado web” (<em>web scraping</em>) en páginas estáticas.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
