@@ -1,5 +1,9 @@
+# project:
+#   type: book
+
 project:
-  type: book
+     type: website
+     output-dir: docs
 
 book:
   title: "Introducción a Web Scraping para el análisis estadístico con R"
@@ -11,7 +15,6 @@ book:
     - 02_normas_etica.qmd
     - 03_tidyverse.qmd
     - 04_web_scrap_pag_est.qmd
-    - summary.qmd
     - references.qmd
   page-footer: 
     center: Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy 
