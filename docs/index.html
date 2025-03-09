@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.5.57" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-<meta name="author" content="Juan Manuel Solís" />
+<meta name="author" content="Juan Manuel Solís">
 
 <title>Introducción a Web Scraping para el análisis estadístico con R</title>
 <style>
@@ -25,7 +23,24 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./01_intro.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -57,22 +72,17 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body>
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn"
-      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
-      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
-      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
-        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
-        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Objetivos Generales</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -86,9 +96,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="/">
-      Introducción a Web Scraping para el análisis estadístico con R
-      </a> 
+      <a href="./">Introducción a Web Scraping para el análisis estadístico con R</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -100,47 +108,53 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Objetivos Generales</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/01_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción al manejo de R</span></span></a>
+  <a href="./01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al manejo de R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/02_normas_etica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Aspectos normativos y éticos</span></span></a>
+  <a href="./02_normas_etica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos normativos y éticos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/03_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>3</span>  <span class='chapter-title'>Manipulación de tablas: tidyverse</span></span></a>
+  <a href="./03_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulación de tablas: tidyverse</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/04_web_scrap_pag_est.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>4</span>  <span class='chapter-title'>Bases para el "raspado web" (*web scraping*) en páginas estáticas.</span></span></a>
+  <a href="./04_web_scrap_pag_est.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases para el “raspado web” (<em>web scraping</em>) en páginas estáticas.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <div id="quarto-toc-target"></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivos-generales" id="toc-objetivos-generales" class="nav-link active" data-scroll-target="#objetivos-generales">Objetivos Generales</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -175,18 +189,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">En esta página</h2>
-   
-  <ul>
-  <li><a href="#objetivos-generales" id="toc-objetivos-generales">Objetivos Generales</a></li>
-  </ul>
-</nav>
+
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="logows.jpg" class="img-fluid" style="width:100.0%" /></p>
+<figure class="figure">
+<p><img src="logows.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Ilustración: https://posit.co/blog/rvest-easy-web-scraping-with-r/</figcaption>
 </figure>
 </div>
@@ -199,25 +207,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Introducir los conceptos y herramientas fundamentales del web scraping, comentando aspectos éticos y legales.</p></li>
 <li><p>Proveer herramientas necesarias para trabajar con páginas estáticas utilizando R.</p></li>
 </ol>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar-title">Introducción a Web Scraping para el análisis estadístico con R</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-navbar-title">Introducción a Web Scraping para el análisis estadístico con R</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-next"><span class="chapter-number">1</span>  <span class="chapter-title">Introducción al manejo de R</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.htmlObjetivos-Generales">Objetivos Generales</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/01_intro.html&lt;span-class=&#39;chapter-number&#39;&gt;1&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Introducción-al-manejo-de-R&lt;/span&gt;"><span class="chapter-number">1</span>  <span class="chapter-title">Introducción al manejo de R</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/02_normas_etica.html&lt;span-class=&#39;chapter-number&#39;&gt;2&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Aspectos-normativos-y-éticos&lt;/span&gt;"><span class="chapter-number">2</span>  <span class="chapter-title">Aspectos normativos y éticos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/03_tidyverse.html&lt;span-class=&#39;chapter-number&#39;&gt;3&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Manipulación-de-tablas:-tidyverse&lt;/span&gt;"><span class="chapter-number">3</span>  <span class="chapter-title">Manipulación de tablas: tidyverse</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/04_web_scrap_pag_est.html&lt;span-class=&#39;chapter-number&#39;&gt;4&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Bases-para-el-&#39;raspado-web&#39;-(*web-scraping*)-en-páginas-estáticas.&lt;/span&gt;"><span class="chapter-number">4</span>  <span class="chapter-title">Bases para el “raspado web” (<em>web scraping</em>) en páginas estáticas.</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/references.htmlReferences">References</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-breadcrumbs-Objetivos-Generales">Objetivos Generales</span></p>
-<div class="hidden quarto-markdown-envelope-contents" data-render-id="footer-left">
-<p>Año 2025</p>
-</div>
-<div class="hidden quarto-markdown-envelope-contents" data-render-id="footer-center">
-<p>Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy</p>
-</div>
-<div class="hidden quarto-markdown-envelope-contents" data-render-id="footer-right">
-<p><img src="logounju.png" class="img-fluid" width="80" /> <img src="logofca.png" class="img-fluid" width="80" /></p>
-</div>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-metatitle">Introducción a Web Scraping para el análisis estadístico con R</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-twittercardtitle">Introducción a Web Scraping para el análisis estadístico con R</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-ogcardtitle">Introducción a Web Scraping para el análisis estadístico con R</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-metasitename">Introducción a Web Scraping para el análisis estadístico con R</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-twittercarddesc"></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-ogcardddesc"></span></p>
-</div>
+
+
 </section>
 
 </main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -692,8 +687,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a  href="/01_intro.html" class="pagination-link" aria-label="Introducción al manejo de R">
-        <span class="nav-page-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción al manejo de R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01_intro.html" class="pagination-link" aria-label="Introducción al manejo de R">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al manejo de R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -701,19 +696,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <div class='footer-contents'>Año 2025</div>  
-    </div>   
+<p>Año 2025</p>
+</div>   
     <div class="nav-footer-center">
-      <div class='footer-contents'>Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy</div>  
-    </div>
+<p>Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy</p>
+</div>
     <div class="nav-footer-right">
-      <div class='footer-contents'>![](logounju.png){ width=80px }
-![](logofca.png){ width=80px }
-</div>  
-    </div>
+<p><img src="logounju.png" class="img-fluid" width="80"> <img src="logofca.png" class="img-fluid" width="80"></p>
+</div>
   </div>
 </footer>
 
-</body>
 
-</html>
+
+
+</body></html>
