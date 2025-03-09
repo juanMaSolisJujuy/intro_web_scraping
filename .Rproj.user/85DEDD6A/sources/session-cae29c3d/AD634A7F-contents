@@ -1,0 +1,10 @@
+```{r out.width="100%",fig.align='center', echo=FALSE, fig.cap="Ilustración: https://posit.co/blog/rvest-easy-web-scraping-with-r/"}
+knitr::include_graphics("logows.jpg")
+```
+# Objetivos Generales {.unnumbered}
+
+1. Capacitar en el uso básico de R para la extracción de datos de la web para el análisis estadístico. 
+
+2. Introducir los conceptos y herramientas fundamentales del web scraping, comentando aspectos éticos y legales. 
+
+3. Proveer herramientas necesarias para trabajar con páginas estáticas utilizando R. 

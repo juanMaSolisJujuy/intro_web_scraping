@@ -1,0 +1,295 @@
+# Manipulación de tablas: tidyverse
+
+```{r echo=FALSE,warning=FALSE,message=FALSE,fig.align='center', out.width="50%"}
+
+knitr::include_graphics("tidyverse.png")
+
+```
+
+Tidyverse es una **colección** de paquetes de R diseñados para la ciencia de datos. Todos los paquetes comparten una filosofía de diseño, una gramática y estructuras de datos subyacentes.
+
+- Referencia principal: [R para la Ciencia de Datos.](https://es.r4ds.hadley.nz/)
+
+- También es posible consultar en la [página oficial de tidyverse](https://www.tidyverse.org/).
+
+Para instalar el paquete completo, se debe ejecutar:
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+#| code-fold: false
+
+install.packages("tidyverse")
+
+```
+
+El código anterior debe ejecutarse <font style="color:YellowGreen;">solo una vez</font>. La instalación completa del paquete incluye, entre otras, las siguientes librerías:
+
+- <font style="color:YellowGreen;">readr</font>: Importa datos de archivos (como CSV o TXT) de manera rápida y eficiente.
+
+- <font style="color:YellowGreen;">dplyr</font>: Manipula y transforma datos con funciones intuitivas como filter, select, y mutate.
+
+- <font style="color:YellowGreen;">ggplot2</font>: Crea visualizaciones de datos personalizadas y elegantes usando una gramática gráfica.
+
+- <font style="color:YellowGreen;">tibble</font>: Proporciona una versión moderna y mejorada de los data frames de R.
+
+- <font style="color:YellowGreen;">tidyr</font>: Organiza y limpia datos, facilitando su transformación a formatos "tidy".
+
+- <font style="color:YellowGreen;">purrr</font>: Trabaja con funciones y vectores de manera funcional y consistente.
+
+- <font style="color:YellowGreen;">stringr</font>: Manipula y opera con cadenas de texto de forma sencilla.
+
+- <font style="color:YellowGreen;">forcats</font>: Facilita el manejo de variables categóricas (factores) en R.
+
+Para poder utilizar las funciones que proveen estas librerías, es necesario ejecutar:
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+#| code-fold: false
+
+library(tidyverse)
+
+```
+
+El llamado a la librería con la función **library()** debe realizarse <font style="color:YellowGreen;">siempre</font>.
+
+En esta clase, trabajaremos con el set de datos <font style="color:YellowGreen;">crecimientoPlantas</font>. Debido a la gran cantidad de funciones provistas por las librerías de tidyverse, utilizaremos solo algunas de las más frecuentes.
+
+### Importar
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+library(rio)
+
+datos = file.choose() |> import()
+
+```
+
+**<font style="color:YellowGreen;">Exploración</font>**
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=TRUE, echo=FALSE}
+
+datos = PlantGrowth
+
+
+```
+
+
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+dim(datos)
+str(datos)
+table(datos$group)
+head(datos)
+summary(datos)
+
+
+```
+
+
+### Añadir/modificar columnas
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+library(tidyverse)
+
+datos |>
+  mutate(id = row_number()) # Añade la columna 'id' con el número de filas
+
+datos |>
+  mutate(
+    weight = round(weight, 1) # Modifica la columna 'weight'
+  )
+
+```
+
+::: callout-tip
+##### Tip
+
+Una de las mayores contribuciones del paquete *tidyverse*, específicamente la librería **\{magrittr\}**, fue la implementación del operador *pipe* para concatenar funciones, que se escribe **<font style="color:YellowGreen;">%>%</font>**. Se extendió tanto su empleo, que a partir de la versión 4.1.0 de **R** se lo incorporó dentro de los operadores de base en R, con la forma |>.
+
+:::
+
+### Renombrar columnas
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos |>
+  rename(
+    peso = weight,
+    grupo = group
+  )
+
+# O bien
+
+datos |>
+  rename_with(
+    ~ c("peso", "grupo")
+  )
+
+```
+
+Puede ser conveniente crear una nueva tabla con los nuevos nombres de columnas:
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos.2 = datos |>
+  rename(
+    peso = weight,
+    grupo = group
+  )
+
+```
+
+
+### Medidas de resumen agrupadas
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos.2 |>
+  group_by(grupo) |>
+  summarise(promedio = mean(peso))
+
+datos.2 |>
+  group_by(grupo) |>
+  summarise(
+    promedio = mean(peso),
+    minimo = min(peso),
+    maximo = max(peso)
+  )
+
+datos.2 |>
+  group_by(grupo) |>
+  count()
+
+```
+
+### Combinación de funciones
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos.2 |>
+  mutate(
+    mayor = ifelse(
+      peso > mean(peso),
+      TRUE,
+      FALSE
+    )
+  ) |>
+  group_by(mayor) |>
+  summarise(promedio = mean(peso))
+
+
+```
+
+### Ordenar
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos.2 |>
+  arrange(grupo, peso)
+
+datos.2 |>
+  group_by(grupo) |>
+  summarise(media = mean(peso)) |>
+  arrange(media)
+
+datos.2 |>
+  group_by(grupo) |>
+  summarise(media = mean(peso)) |>
+  arrange(- media)
+
+
+```
+
+
+### Selección de columnas
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos.2 |>
+  select(peso) # Selección por nombre de columna
+
+datos.2 |>
+  select(1) # Selección por índice de columna
+
+```
+
+
+### Selección de filas/filtros
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+datos.2 |>
+  filter(grupo == "ctrl")
+
+datos.2 |>
+  filter(grupo != "ctrl")
+
+datos.2 |>
+  filter(peso > 6)
+
+datos.2 |>
+  filter(peso > mean(peso))
+
+datos.2 |>
+  slice(1)
+
+datos.2 |>
+  slice(4:10)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice(1)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice_max(peso)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice_max(peso, n = 2)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice_sample(n = 5)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice_tail(n = 5)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice_head(n = 5)
+
+datos.2 |>
+  group_by(grupo) |>
+  slice_tail(n = 5)
+
+```
+
+
+### Tablas horizontales y verticales
+
+```{r eval = FALSE, collapse=TRUE,warning=FALSE,message=FALSE,eval=FALSE}
+
+dv = datos.2 |>
+  group_by(grupo) |>
+  summarise(media = mean(peso))
+dv
+
+dh = dv |>
+  pivot_wider(
+    names_from = grupo,
+    values_from = media
+  )
+dh
+
+dv2 = dh |>
+  pivot_longer(
+    cols = 1:3,
+    names_to = "grupo",
+    values_to = "peso"
+  )
+dv2
+
+```
+

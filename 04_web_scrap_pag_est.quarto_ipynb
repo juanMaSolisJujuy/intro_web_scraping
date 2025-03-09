@@ -1,0 +1,49 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Bases para el \"raspado web\" (*webscraping*)\n",
+        "\n",
+        "## Archivos HTML (HyperText Markup Language)\n",
+        "\n",
+        "<font style=\"color:darkcyan;\">Una página web es un archivo de texto plano que utiliza la extensión .html</font> (Riva Quiroga, 2022). \n",
+        "\n",
+        " Al contenido de ese archivo se le agregan ciertas etiquetas para indicar a qué corresponde cada uno de sus elementos, lo que permite darle la estructura necesaria para que se visualice correctamente en un navegador.\n",
+        " \n",
+        " Ejemplo (adaptado de Riva Quiroga):\n",
+        " \n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "```{text}\n",
+        "<h1>Este es el título más grande</h1>\n",
+        "<p>Este es un párrafo que dice cosas muy muy interesantes. Es un poco breve, pero sirve para ilustrar que todas estas palabras conforman un párrafo.</p>\n",
+        "<h2>Este es un título un poco más pequeño</h2>\n",
+        "<ol>\n",
+        "\t<li>Un primer elemento</li>\n",
+        "\t<li>Un segundo elemento</li>\n",
+        "\t<li>Un tercer elemento</li>\n",
+        "</ol>\n",
+        "<h2>Este título es del mismo tamaño que el anterior</h2>\n",
+        "<p>Este es el inicio de otro párrafo que podría ser muy interesante también.</p>\n",
+        " \n",
+        "```"
+      ],
+      "id": "9712672d"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python311\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

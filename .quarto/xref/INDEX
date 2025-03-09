@@ -1,0 +1,32 @@
+{
+  "intro.qmd": {
+    "intro.html": "cfeb34b3"
+  },
+  "index.qmd": {
+    "index.html": "d5eb701e"
+  },
+  "summary.qmd": {
+    "summary.html": "77a9570a"
+  },
+  "references.qmd": {
+    "references.html": "14f40d07"
+  },
+  "01_intro.qmd": {
+    "01_intro.html": "9999cba7"
+  },
+  "02_tidyverse.qmd": {
+    "02_tidyverse.html": "4f5d8346"
+  },
+  "03_web_scrap_pag_est.qmd": {
+    "03_web_scrap_pag_est.html": "98689c9d"
+  },
+  "02_normas_etica.qmd": {
+    "02_normas_etica.html": "3627b70c"
+  },
+  "03_tidyverse.qmd": {
+    "03_tidyverse.html": "6adb1b0d"
+  },
+  "04_web_scrap_pag_est.qmd": {
+    "04_web_scrap_pag_est.html": "c11cbf7d"
+  }
+}

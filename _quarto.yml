@@ -1,0 +1,41 @@
+project:
+  type: book
+
+book:
+  title: "Introducción a Web Scraping para el análisis estadístico con R"
+  author: "Juan Manuel Solís"
+  date: "03/05/2025"
+  chapters:
+    - index.qmd
+    - 01_intro.qmd
+    - 02_normas_etica.qmd
+    - 03_tidyverse.qmd
+    - 04_web_scrap_pag_est.qmd
+    - summary.qmd
+    - references.qmd
+  page-footer: 
+    center: Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy 
+    right: |
+      ![](logounju.png){ width=80px }
+      ![](logofca.png){ width=80px }
+    left: Año 2025
+    
+bibliography: references.bib
+
+lang: es
+
+format:
+  html:
+    theme: litera
+    toc-title: En esta página
+    code-summary: "<span style='color: darkcyan; border: 2px solid darkcyan; border-radius: 8px; padding: 4px;'>Mostrar código</span>"
+    code-fold: false
+    code-overflow: wrap
+    code-tools: 
+      source: false
+      toggle: true
+  pdf:
+    documentclass: scrreprt
+
+editor: source
+

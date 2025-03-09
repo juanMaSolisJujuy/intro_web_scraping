@@ -1,0 +1,431 @@
+# Bases para el "raspado web" (*web scraping*) en páginas estáticas.
+
+## Archivos HTML (HyperText Markup Language)
+
+<font style="color:darkcyan;">Una página web es un archivo de texto plano que utiliza la extensión ".html"</font> (Riva Quiroga, 2022).
+
+Al contenido de ese archivo se le agregan ciertas etiquetas para indicar a qué corresponde cada uno de sus elementos, lo que permite darle la estructura necesaria para que se visualice correctamente en un navegador.
+
+Ejemplo:
+
+``` markdown
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Título</title>
+</head>
+
+<body>
+  <h1 id='primero'>Título</h1>
+  <p>Texto.; <b>Texto en negrita.</b></p>
+  </body>
+  
+</html>
+ 
+```
+
+HTML tiene una estructura jerárquica formada por **elementos** que consisten en una etiqueta de inicio (por ejemplo <tag>), opcional **atributos** (id='primero'), una etiqueta final (como </tag>), y **contenido** (todo entre la etiqueta de inicio y final).
+
+::: {style="border-radius: 20px; overflow: auto; width: 70%; margin: 0 auto; justify-content: center"}
+```{r grafico, echo=FALSE,out.width="100%",fig.align='center',fig.cap="Fuente: https://developer.mozilla.org/es/docs/Web/HTML"}
+
+knitr::include_graphics("elemento.png")
+
+
+```
+:::
+
+Las partes principales del elemento son:
+
+-   <font style="color:darkcyan;">La etiqueta de apertura</font>: consiste en el nombre del elemento (en este caso, p), encerrado por paréntesis angulares (\< \>) de apertura y cierre. Establece dónde comienza o empieza a tener efecto el elemento —en este caso, dónde es el comienzo del párrafo—.
+
+-   <font style="color:darkcyan;">La etiqueta de cierre</font>: es igual que la etiqueta de apertura, excepto que incluye una barra de cierre (/) antes del nombre de la etiqueta. Establece dónde termina el elemento —en este caso dónde termina el párrafo—.
+
+-   <font style="color:darkcyan;">El contenido</font>: este es el contenido del elemento, que en este caso es sólo texto.
+
+-   <font style="color:darkcyan;">El elemento</font>: la etiqueta de apertura, más la etiqueta de cierre, más el contenido equivale al elemento.
+
+Hay más de 100 elementos HTML. Algunos de los más importantes son:
+
+-   Cada página HTML debe estar en un elemento <font style="color:darkcyan;">`<html>`</font>, y debe tener dos **hijos**: <font style="color:darkcyan;">`<head>`</font>, que contiene metadatos de documentos como el título de la página, y <font style="color:darkcyan;">`<body>`</font>, que contiene el contenido que ve en el navegador.
+
+``` markdown
+<p>
+  Hola! Mi <b>nombre</b> es Juan.
+</p>
+```
+
+Los **hijos (children)** son los elementos contenidos dentro de otros elementos. El elemento `<p>` de arriba tiene un hijo, el elemento `<b>`. El elemento `<b>` no tiene hijos, pero sí tiene contenido (el texto "nombre").
+
+-   Etiquetas de **bloques** como <font style="color:darkcyan;">`<h1>`</font>, <font style="color:darkcyan;">`<section>`</font> (sección), <font style="color:darkcyan;">`<p>`</font> (párrafo), y <font style="color:darkcyan;">`<ol>`</font> (lista ordenada) forman la estructura general de la página.
+
+-   Etiquetas en línea como <font style="color:darkcyan;">`<b>`</font> (negrita), <font style="color:darkcyan;">`<i>`</font> (itálica), y <font style="color:darkcyan;">`<a>`</font> (enlace) dan formato al texto dentro de las etiquetas de bloque.
+
+Los elementos pueden tener <font style="color:darkcyan;">atributos</font>:
+
+``` markdown
+<p class = "clase_1"> Párrafo.</p>
+```
+
+Los atributos contienen información adicional sobre el elemento que no aparecerá en el contenido. En este ejemplo, el atributo *class* es un atributo de identificación de referencia a determinadas propiedades.
+
+*Ejemplo*:
+
+``` markdown
+
+<html>
+
+<head>
+<style>
+h1.estilo1 {
+    color: blue;
+}
+p.estilo2 {
+    color: red
+}
+</style>
+</head>
+
+<body>
+
+<h1 class = "estilo1">Encabezado</h1>
+<p class = "estilo2">Primer párrafo.</p>
+<p>Segundo párrafo.</p>
+
+</body>
+</html>
+```
+
+| Atributo | Descripción | Etiquetas |
+|---------------|--------------------------------|-------------------------|
+| id | Identificador único para un elemento | Todas |
+| class | Especifica una o más clases CSS para un elemento | Todas |
+| src | Especifica la URL de un recurso externo, como imágenes o scripts | \<img\>, \<script\>, \<iframe\>, \<audio\>, \<video\> |
+| href | Define la URL de un enlace | \<a\>, \<link\> |
+| alt | Texto alternativo para imágenes | \<img\>, \<area\> |
+| title | Texto emergente cuando el usuario pasa el cursor sobre un elemento | Todas |
+| style | Define estilos CSS en línea | Todas |
+| disabled | Deshabilita un elemento de entrada | \<button\>, \<input\>, \<select\>, \<textarea\> |
+| placeholder | Texto de sugerencia en campos de entrada | \<input\>, \<textarea\> |
+| readonly | Hace que un campo de entrada sea de solo lectura | \<input\>, \<textarea\> |
+| required | Indica que un campo de entrada es obligatorio | \<input\>, \<select\>, \<textarea\> |
+| type | Define el tipo de entrada | \<input\> |
+| value | Especifica el valor de un elemento de entrada | \<input\>, \<option\>, \<button\> |
+| name | Nombre del elemento para envío en formularios | \<input\>, \<textarea\>, \<select\>, \<form\> |
+
+::: callout-tip
+###### Tip
+
+Un recurso de consulta recomendado es [MDN Web Doc](https://developer.mozilla.org/en-US/docs/Web/HTML)
+:::
+
+## Extracción de datos
+
+Este apartado es una adaptación de la Unidad 24 del libro [R for Data Science](https://r4ds.hadley.nz/webscraping).
+
+En **R**, el acceso a la información provista desde páginas estáticas puede realizarse utilizando funciones de la librería **{rvest}**, que puede ser instalada desde el CRAN:
+
+```{r eval=FALSE, echo=TRUE}
+
+# Instalación de {rvest} (debe realizarse sólo una vez)
+
+install.packages("rvest")
+
+```
+
+Luego, toda vez que deseemos utilizar la librería **{rvest}**, deberemos invocarla por medio de la función **library()**:
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+
+library("rvest")
+
+```
+
+```{r echo=TRUE}
+
+html_cn_22 = read_html("https://censo.gob.ar/index.php/datos_definitivos/")
+html_cn_22
+
+```
+
+::: callout-note
+**{rvest}** incluye la función *minimal_html()* que permite escribir html, que utilizaremos para ilustrar el modo de funcionamiento con ejemplo simples.
+:::
+
+Por Ejemplo:
+
+```{r echo=TRUE}
+
+html = minimal_html(
+  "
+  <p>Esto es un párrafo</p>
+  <ul>
+    <li>Esto es una lista</li>
+  </ul>
+  "
+)
+html
+
+```
+
+## Encontrar elementos
+
+CSS (cascading style sheets) define patrones para localizar elementos html, útiles para "rascar" datos web. Por ejemplo:
+
+-   `p` selecciona todos los elementos **p**.
+
+-   `.title` selecciona todos los elementos con la `clase` "title".
+
+-   `#title` selecciona el elemento con el atributo `id` igual a "title".
+
+Por ejemplo:
+
+```{r echo=TRUE}
+
+html = minimal_html(
+  "
+  <h>Esto es un encabezado</h>
+  <p id='primero'>Esto es un párrafo</p>
+  <p class='importante'>Esto es un párrafo importante</p>
+  "
+)
+html
+
+```
+
+La función **html_elements()** permite encontrar todos los elementos que coinciden con el selector:
+
+```{r echo=TRUE}
+
+html |> html_elements("p")
+
+html |> html_elements(".importante")
+
+html |> html_elements("#primero")
+
+
+```
+
+**html_element()** devuelve el mismo número de salidas que las entradas. Si se aplica a un documento completo, devolverá la primera coincidencia:
+
+```{r echo=TRUE}
+
+html |> html_element("p")
+
+
+```
+
+::: callout-note
+## Nota
+
+Cuando se utiliza un selector que no coincie con ningún elemento, html_elements() devuelve un vector de longitud 0, y html_element() devuelve un valor omitido (NA).
+
+:::
+
+
+## Selecciones anidadas
+
+Es posible combinar las funciones html_element() y html_elements(). Por ejemplo:
+
+
+```{r echo=TRUE}
+
+html = minimal_html(
+  "
+  <ul>
+    <li><b>Opción 1</b> es un ejemplo de <i>item</i> con una <span class='tipo'>característica 1</span></li>
+    <li><b>Opción 2</b> es otro ejemplo de  <i>item</i></li>
+    <li><b>Opción 3</b> es otro <i>item</i> con la característica <span class=tipo'>característica 3</span></li>
+  </ul>
+  "
+)
+
+```
+
+- Selección de items:
+
+```{r}
+opciones = html |> html_elements("li")
+opciones
+
+```
+
+Notar lo siguiente:
+
+```{r}
+opciones |> html_element("b")
+
+opciones |> html_element(".tipo")
+
+opciones |> html_elements(".tipo")
+
+```
+## Texto y atributos
+
+La función **html_text2()** extrae el contenido en texto plano de un elemento html:
+
+```{r}
+
+opciones |>
+  html_element("b") |>
+  html_text2()
+
+opciones |>
+  html_element(".tipo") |>
+  html_text2()
+
+```
+
+La función **html_attr()** extrae datos desde los atributos:
+
+```{r}
+
+html = minimal_html("
+  <p><a href='https://es.wikipedia.org/wiki/INDEC'>cats</a></p>
+  <p><a href='https://es.wikipedia.org/wiki/Agencia_de_Acceso_a_la_Información_Pública_(Argentina)'>dogs</a></p>
+")
+
+html |> 
+  html_elements("p") |> 
+  html_element("a") |> 
+  html_attr("href")
+
+```
+
+## Tablas
+
+Si los datos están almacenados como una tabla html, la importación puede realizarse sin inconvenientes. Las tablas html se construyen con cuatro elementos: `<table>`, `<tr>` (table row), `<th>` (table heading) y `<td>` (table data). Por ejemplo:
+
+```{r}
+
+html = minimal_html("
+  <table class='miTabla'>
+    <tr><th>x</th>   <th>y</th></tr>
+    <tr><td>1.5</td> <td>2.7</td></tr>
+    <tr><td>4.9</td> <td>1.3</td></tr>
+    <tr><td>7.2</td> <td>8.1</td></tr>
+  </table>
+  ")
+
+```
+
+Luego, para extraer la tabla:
+
+```{r}
+
+html |> 
+  html_element(".miTabla") |> 
+  html_table()
+
+```
+
+## Elección del selector adecuado
+
+Usualmente la elección del selector adecuado es la parte más complicada del proceso. Un selector adecuado debe ser `específico` y `sensible`.
+
+Existen dos herramientas que pueden facilitar la elección del selector adecuado:
+
+- `SelectorGadget`: es una extensión javascript que genera selectores CCS.
+
+- `Herramientas del motor de búsqueda`: seleccionar un objeto y, luego de hacer *click derecho*, seleccionar `inspeccionar`. Se desplegará una ventana con la estructura html de la página, centrada en el objeto seleccionado.
+
+```{r echo=FALSE, warning=FALSE,message=FALSE, fig.align='center',out.width="100%"}
+
+knitr::include_url("https://censo.gob.ar/index.php/datos_definitivos_jujuy/")
+
+```
+
+Por ejemplo:
+
+```{r eval=FALSE}
+
+html = read_html("https://censo.gob.ar/index.php/datos_definitivos_jujuy/")
+
+# Exploración de "hijos" (children)
+
+html |> html_children()
+
+html |> html_element("body") |> html_children()
+
+# Exploración de todos los enlaces
+
+enlace = html |>
+  html_elements("a") |>
+  html_attr("href")
+
+# Exploración de los enlaces de archivos en excel
+
+enlace[grepl(pattern = ".xlsx",
+             enlace, 
+             ignore.case = TRUE)]
+
+# Exploración de un nodo con un enlace específico (copiado el selector)
+html |>
+  html_element("#elementor-tab-content-1341 > p:nth-child(2) > span:nth-child(1) > a")
+
+
+# Enlace a un archivo
+
+enlace = html |>
+  html_element("#elementor-tab-content-1341 > p:nth-child(2) > span:nth-child(1) > a") |>
+  html_attr("href")
+
+enlace
+  
+
+# Descarga de un archivo
+
+archivo_temp = tempfile(fileext = ".xlsx")
+archivo_temp
+
+download.file(enlace, destfile = archivo_temp, mode = "wb")
+
+```
+
+
+
+## Librería `polite`
+
+La librería **\{polite\}** tiene como objetivo promover un "raspado" web responsable. Las dos funciones principales del paquete, `bow` y `scrape`, definen y llevan a cabo una sesión de recolección de datos web. `bow` se utiliza para presentar al cliente al host y solicitar permiso para extraer datos (mediante una consulta en el archivo robots.txt del host), mientras que `scrape` es la función principal para recuperar datos del servidor remoto. Una vez que se establece la conexión, no es necesario volver a usar `bow` . En cambio, para ajustar una URL de extracción de datos, el usuario puede simplemente indicar la nueva ruta, que actualiza la URL de la sesión, asegurándose de que la nueva ubicación se pueda negociar en robots.txt.
+
+Se puede instalar `polite` desde el **CRAN** (una sola vez):
+
+```{r echo=TRUE, eval=FALSE}
+install.packages("polite")
+```
+
+Luego
+
+```{r eval=FALSE}
+
+library(polite)
+sesion = bow("https://www.indec.gob.ar/", force=TRUE)
+
+print(sesion)
+
+# Título
+
+titulo = scrape(sesion) %>%
+  html_node("title") %>%
+  html_text()
+
+print(titulo)
+
+# Enlaces
+
+enlaces = scrape(sesion) %>%
+  html_nodes("a") %>%
+  html_attrs_dfr("href")
+
+print(enlaces)
+
+enlaces = scrape(sesion) %>%
+  html_nodes("a") %>%
+  html_attrs_dfr("href") |>
+  dplyr::filter(!is.na(href))
+
+print(enlaces)
+
+```
+
