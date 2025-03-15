@@ -4,12 +4,6 @@
 
 # Códigos acá
 
-# webr::install("tidyverse")
-
-
-
-
-
 
 
 ```
