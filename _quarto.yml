@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: docs
+filters: 
+  - webr
 
 # project:
 #      type: website
@@ -16,6 +18,8 @@ book:
     - 02_tidyverse.qmd
     - 03_normas_etica.qmd
     - 04_web_scrap_pag_est.qmd
+    - 05_funciones.qmd
+    - R.qmd
     - references.qmd
   page-footer: 
     center: Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy 

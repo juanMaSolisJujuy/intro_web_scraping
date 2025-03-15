@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juan Manuel Solís">
 
-<title>Introducción a Web Scraping para el análisis estadístico con R</title>
+<title>5&nbsp; Funciones – Introducción a Web Scraping para el análisis estadístico con R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_intro.html" rel="next">
+<link href="./R.html" rel="next">
+<link href="./04_web_scrap_pag_est.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Objetivos Generales</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_funciones.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Funciones</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -108,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Objetivos Generales</span></a>
   </div>
 </li>
@@ -138,14 +172,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_funciones.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_funciones.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Funciones</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R en la web</span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R en la web</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -164,7 +198,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#objetivos-generales" id="toc-objetivos-generales" class="nav-link active" data-scroll-target="#objetivos-generales">Objetivos Generales</a></li>
+  <li><a href="#estructura-general-de-una-función" id="toc-estructura-general-de-una-función" class="nav-link active" data-scroll-target="#estructura-general-de-una-función"><span class="header-section-number">5.1</span> Estructura general de una función</a></li>
+  <li><a href="#estructuras-de-control" id="toc-estructuras-de-control" class="nav-link" data-scroll-target="#estructuras-de-control"><span class="header-section-number">5.2</span> Estructuras de control</a>
+  <ul class="collapse">
+  <li><a href="#estructuras-de-control-en-r-if-y-for" id="toc-estructuras-de-control-en-r-if-y-for" class="nav-link" data-scroll-target="#estructuras-de-control-en-r-if-y-for"><span class="header-section-number">5.2.1</span> Estructuras de control en R: <code>if</code> y <code>for</code></a></li>
+  </ul></li>
+  <li><a href="#actividad-integradora" id="toc-actividad-integradora" class="nav-link" data-scroll-target="#actividad-integradora"><span class="header-section-number">5.3</span> Actividad integradora</a></li>
   </ul>
 </nav>
     </div>
@@ -173,26 +212,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introducción a Web Scraping para el análisis estadístico con R</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Funciones</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juan Manuel Solís </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">5 de marzo de 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -202,23 +229,146 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="logows.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Ilustración: https://posit.co/blog/rvest-easy-web-scraping-with-r/</figcaption>
-</figure>
+<p>Como se estableció anteriormente, en <strong>R</strong>, las funciones son bloques de código reutilizables que realizan una tarea específica. Toman unos valores de entrada o <code>argumentos</code>, ejecutan una serie de operaciones y devuelven un resultado. Las funciones permiten organizar el código, evitar la repetición y facilitar el mantenimiento.</p>
+<section id="estructura-general-de-una-función" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="estructura-general-de-una-función"><span class="header-section-number">5.1</span> Estructura general de una función</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nombre_funcion <span class="ot">=</span> <span class="cf">function</span>(argumento1, argumento2, ...) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Operaciones con los argumentos</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultado)  <span class="co"># Devuelve un valor (opcional)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Componentes de una función:</strong></p>
+<ul>
+<li><p><code>Nombre de la función</code>: Identificador que se usa para llamar a la función.</p></li>
+<li><p><code>Argumentos</code>: Valores de entrada que la función necesita para operar. Pueden ser opcionales o tener valores por defecto.</p></li>
+<li><p><code>Cuerpo de la función</code>: Contiene las operaciones que se ejecutan cuando se llama a la función.</p></li>
+<li><p><code>Valor de retorno</code>: El resultado que devuelve la función (usualmente usando la función <em>return()</em>). Si no se especifica, la función devuelve el valor de la última expresión evaluada.</p></li>
+</ul>
+<p><strong>Ventajas de utilizar funciones (Wickham, 2024)</strong></p>
+<ul>
+<li><p>Se puede dar a la función un nombre evocador que hará el código más fácil de entender.</p></li>
+<li><p>A medida que cambien los requerimientos, solo se necesitará cambiar el código en un solo lugar, en vez de en varios lugares.</p></li>
+<li><p>Se eliminan las probabilidades de errores accidentales al copiar y pegar (por ej., al actualizar el nombre de una variable en un lugar, pero no en otro).</p></li>
+</ul>
+<p><strong>Ejemplo de una función básica</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>multiplicar <span class="ot">=</span> <span class="cf">function</span>(a, <span class="at">b =</span> <span class="dv">2</span>) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a <span class="sc">*</span> b)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">multiplicar</span>(<span class="dv">5</span>)  <span class="co"># Usa b = 2 por defecto</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">multiplicar</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Funciones anónimas</strong></p>
+<p>Son funciones sin nombre que se definen y usan directamente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)(<span class="dv">3</span>)  <span class="co"># ¿Qué valor devuelve?</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Funciones como objetos</strong></p>
+<p>Las funciones pueden asignarse a variables, pasarse como argumentos a otras funciones o devolverse como resultados.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>operacion <span class="ot">=</span> multiplicar</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">operacion</span>(<span class="dv">2</span>, <span class="dv">3</span>)  </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Las variables definidas dentro de una función son locales y no afectan el entorno global.</p>
 </div>
-<section id="objetivos-generales" class="level1 unnumbered">
-<h1 class="unnumbered">Objetivos Generales</h1>
-<ol type="1">
-<li><p>Capacitar en el uso básico de R para la extracción de datos de la web para el análisis estadístico.</p></li>
-<li><p>Introducir los conceptos y herramientas fundamentales del web scraping, comentando aspectos éticos y legales.</p></li>
-<li><p>Proveer herramientas necesarias para trabajar con páginas estáticas utilizando R.</p></li>
-</ol>
+</div>
+</section>
+<section id="estructuras-de-control" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="estructuras-de-control"><span class="header-section-number">5.2</span> Estructuras de control</h2>
+<section id="estructuras-de-control-en-r-if-y-for" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="estructuras-de-control-en-r-if-y-for"><span class="header-section-number">5.2.1</span> Estructuras de control en R: <code>if</code> y <code>for</code></h3>
+<p>En R, las estructuras de control permiten manejar el flujo de ejecución del código. Dos de las más comunes son las estructuras condicionales (<code>if</code>) y los bucles (<code>for</code>). A continuación, se describe su uso y se proporcionan ejemplos básicos.</p>
+<section id="estructura-condicional-if" class="level4" data-number="5.2.1.1">
+<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="estructura-condicional-if"><span class="header-section-number">5.2.1.1</span> Estructura condicional <code>if</code></h4>
+<p>La estructura <code>if</code> se utiliza para ejecutar un bloque de código si se cumple alguna condición específica. Su sintaxis básica es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bloque de código que se ejecuta si la condición es verdadera</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si la condición es verdadera (<code>TRUE</code>), se ejecuta el bloque de código dentro del <code>if</code>. En caso contrario, no se ejecuta.</p>
+<p><strong>Ejemplo:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x es mayor que 5"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>También es posible agregar una cláusula <code>else</code> para manejar el caso en que la condición no se cumpla:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x es mayor que 15"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x no es mayor que 15"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="bucles-for" class="level4" data-number="5.2.1.2">
+<h4 data-number="5.2.1.2" class="anchored" data-anchor-id="bucles-for"><span class="header-section-number">5.2.1.2</span> Bucles <code>for</code></h4>
+<p>El bucle <code>for</code> se utiliza para repetir un bloque de código un número específico de veces, iterando sobre una secuencia de valores. Su sintaxis básica es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> secuencia) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bloque de código que se ejecuta en cada iteración</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En cada iteración, la variable toma un valor de la secuencia, y el bloque de código se ejecuta con ese valor.</p>
+<p><strong>Ejemplo:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Iteración:"</span>, i))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>También es posible iterar sobre vectores o listas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>frutas <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"manzana"</span>, <span class="st">"banana"</span>, <span class="st">"naranja"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (fruta <span class="cf">in</span> frutas) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(fruta)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="combinación-de-if-y-for" class="level4" data-number="5.2.1.3">
+<h4 data-number="5.2.1.3" class="anchored" data-anchor-id="combinación-de-if-y-for"><span class="header-section-number">5.2.1.3</span> Combinación de <code>if</code> y <code>for</code></h4>
+<p>Las estructuras <code>if</code> y <code>for</code> pueden combinarse para crear lógicas más complejas. Por ejemplo, se puede usar un <code>if</code> dentro de un bucle <code>for</code> para realizar acciones condicionales en cada iteración.</p>
+<p><strong>Ejemplo:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (num <span class="cf">in</span> numeros) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (num <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(num, <span class="st">"es par"</span>))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(num, <span class="st">"es impar"</span>))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1 es impar"
+[1] "3 es impar"
+[1] "5 es impar"
+[1] "7 es impar"
+[1] "10 es par"</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="actividad-integradora" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="actividad-integradora"><span class="header-section-number">5.3</span> Actividad integradora</h2>
+<p>En clase se realizará una actividad de integración de contenidos.</p>
 
 
 </section>
@@ -697,10 +847,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./04_web_scrap_pag_est.html" class="pagination-link" aria-label="Bases para el &quot;raspado web&quot; (*web scraping*) en páginas estáticas.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bases para el “raspado web” (<em>web scraping</em>) en páginas estáticas.</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_intro.html" class="pagination-link" aria-label="Introducción al manejo de R">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al manejo de R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./R.html" class="pagination-link" aria-label="R en la web">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R en la web</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

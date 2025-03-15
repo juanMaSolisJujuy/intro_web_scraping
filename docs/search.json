@@ -248,5 +248,105 @@
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Bases para el \"raspado web\" (*web scraping*) en páginas estáticas.</span>"
     ]
+  },
+  {
+    "objectID": "05_funciones.html",
+    "href": "05_funciones.html",
+    "title": "5  Funciones",
+    "section": "",
+    "text": "5.1 Estructura general de una función\nnombre_funcion = function(argumento1, argumento2, ...) {\n  # Cuerpo de la función\n  # Operaciones con los argumentos\n  return(resultado)  # Devuelve un valor (opcional)\n}\nComponentes de una función:\nVentajas de utilizar funciones (Wickham, 2024)\nEjemplo de una función básica\nmultiplicar = function(a, b = 2) {\n  return(a * b)\n}\nmultiplicar(5)  # Usa b = 2 por defecto\n\nmultiplicar(5, 3)\nFunciones anónimas\nSon funciones sin nombre que se definen y usan directamente.\n(function(x) x^2)(3)  # ¿Qué valor devuelve?\nFunciones como objetos\nLas funciones pueden asignarse a variables, pasarse como argumentos a otras funciones o devolverse como resultados.\noperacion = multiplicar\noperacion(2, 3)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#componentes-de-una-función",
+    "href": "05_funciones.html#componentes-de-una-función",
+    "title": "5  Funciones",
+    "section": "",
+    "text": "Nombre de la función: Identificador que se usa para llamar a la función.\nArgumentos: Valores de entrada que la función necesita para operar. Pueden ser opcionales o tener valores por defecto.\nCuerpo de la función: Contiene las operaciones que se ejecutan cuando se llama a la función.\nValor de retorno: El resultado que devuelve la función (usualmente usando la función return()). Si no se especifica, la función devuelve el valor de la última expresión evaluada.\n\n\n\nSe puede dar a la función un nombre evocador que hará el código más fácil de entender.\nA medida que cambien los requerimientos, solo se necesitará cambiar el código en un solo lugar, en vez de en varios lugares.\nSe eliminan las probabilidades de errores accidentales al copiar y pegar (por ej., al actualizar el nombre de una variable en un lugar, pero no en otro).",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#ejemplo-de-una-función-básica",
+    "href": "05_funciones.html#ejemplo-de-una-función-básica",
+    "title": "5  Funciones",
+    "section": "5.2 Ejemplo de una función básica",
+    "text": "5.2 Ejemplo de una función básica\n\nmultiplicar = function(a, b = 2) {\n  return(a * b)\n}\nmultiplicar(5)  # Usa b = 2 por defecto\n\nmultiplicar(5, 3)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#funciones-anónimas",
+    "href": "05_funciones.html#funciones-anónimas",
+    "title": "5  Funciones",
+    "section": "5.3 Funciones anónimas",
+    "text": "5.3 Funciones anónimas\nSon funciones sin nombre que se definen y usan directamente.\n\n(function(x) x^2)(3)  # ¿Qué valor devuelve?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#funciones-como-objetos",
+    "href": "05_funciones.html#funciones-como-objetos",
+    "title": "5  Funciones",
+    "section": "5.4 Funciones como objetos",
+    "text": "5.4 Funciones como objetos\nLas funciones pueden asignarse a variables, pasarse como argumentos a otras funciones o devolverse como resultados.\n\noperacion = multiplicar\noperacion(2, 3)  \n\n\n\n\n\n\n\nNota\n\n\n\nLas variables definidas dentro de una función son locales y no afectan el entorno global.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referencias",
+    "section": "",
+    "text": "R para la Ciencias de Datos.\nIntroducción a Web Scraping usando R\nMDN\nSitio oficial de rvest",
+    "crumbs": [
+      "Referencias"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#estructura-general-de-una-función",
+    "href": "05_funciones.html#estructura-general-de-una-función",
+    "title": "5  Funciones",
+    "section": "",
+    "text": "Nombre de la función: Identificador que se usa para llamar a la función.\nArgumentos: Valores de entrada que la función necesita para operar. Pueden ser opcionales o tener valores por defecto.\nCuerpo de la función: Contiene las operaciones que se ejecutan cuando se llama a la función.\nValor de retorno: El resultado que devuelve la función (usualmente usando la función return()). Si no se especifica, la función devuelve el valor de la última expresión evaluada.\n\n\n\nSe puede dar a la función un nombre evocador que hará el código más fácil de entender.\nA medida que cambien los requerimientos, solo se necesitará cambiar el código en un solo lugar, en vez de en varios lugares.\nSe eliminan las probabilidades de errores accidentales al copiar y pegar (por ej., al actualizar el nombre de una variable en un lugar, pero no en otro).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNota\n\n\n\nLas variables definidas dentro de una función son locales y no afectan el entorno global.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#estructuras-de-control",
+    "href": "05_funciones.html#estructuras-de-control",
+    "title": "5  Funciones",
+    "section": "5.2 Estructuras de control",
+    "text": "5.2 Estructuras de control\n\n5.2.1 Estructuras de control en R: if y for\nEn R, las estructuras de control permiten manejar el flujo de ejecución del código. Dos de las más comunes son las estructuras condicionales (if) y los bucles (for). A continuación, se describe su uso y se proporcionan ejemplos básicos.\n\n5.2.1.1 Estructura condicional if\nLa estructura if se utiliza para ejecutar un bloque de código si se cumple alguna condición específica. Su sintaxis básica es:\n\nif (condición) {\n  # Bloque de código que se ejecuta si la condición es verdadera\n}\n\nSi la condición es verdadera (TRUE), se ejecuta el bloque de código dentro del if. En caso contrario, no se ejecuta.\nEjemplo:\n\nx = 10\n\nif (x &gt; 5) {\n  print(\"x es mayor que 5\")\n}\n\nTambién es posible agregar una cláusula else para manejar el caso en que la condición no se cumpla:\n\nif (x &gt; 15) {\n  print(\"x es mayor que 15\")\n} else {\n  print(\"x no es mayor que 15\")\n}\n\n\n\n5.2.1.2 Bucles for\nEl bucle for se utiliza para repetir un bloque de código un número específico de veces, iterando sobre una secuencia de valores. Su sintaxis básica es:\n\nfor (variable in secuencia) {\n  # Bloque de código que se ejecuta en cada iteración\n}\n\nEn cada iteración, la variable toma un valor de la secuencia, y el bloque de código se ejecuta con ese valor.\nEjemplo:\n\nfor (i in 1:5) {\n  print(paste(\"Iteración:\", i))\n}\n\nTambién es posible iterar sobre vectores o listas:\n\nfrutas = c(\"manzana\", \"banana\", \"naranja\")\n\nfor (fruta in frutas) {\n  print(fruta)\n}\n\n\n\n5.2.1.3 Combinación de if y for\nLas estructuras if y for pueden combinarse para crear lógicas más complejas. Por ejemplo, se puede usar un if dentro de un bucle for para realizar acciones condicionales en cada iteración.\nEjemplo:\n\nnumeros = c(1, 3, 5, 7, 10)\n\nfor (num in numeros) {\n  if (num %% 2 == 0) {\n    print(paste(num, \"es par\"))\n  } else {\n    print(paste(num, \"es impar\"))\n  }\n}\n\n[1] \"1 es impar\"\n[1] \"3 es impar\"\n[1] \"5 es impar\"\n[1] \"7 es impar\"\n[1] \"10 es par\"",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "05_funciones.html#actividad-integradora",
+    "href": "05_funciones.html#actividad-integradora",
+    "title": "5  Funciones",
+    "section": "5.3 Actividad integradora",
+    "text": "5.3 Actividad integradora\nEn clase se realizará una actividad de integración de contenidos.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "R.html",
+    "href": "R.html",
+    "title": "R en la web",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "R en la web"
+    ]
   }
 ]

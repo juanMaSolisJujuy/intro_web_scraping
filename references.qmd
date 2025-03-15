@@ -1,4 +1,12 @@
-# References {.unnumbered}
+# Referencias {.unnumbered}
 
-::: {#refs}
-:::
+
+- [R para la Ciencias de Datos.](https://r4ds.hadley.nz/webscraping)
+
+- [Introducción a Web Scraping usando R](https://programminghistorian.org/es/lecciones/introduccion-al-web-scraping-usando-r)
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website)
+
+- [Sitio oficial de rvest](https://rvest.tidyverse.org/)
+
+

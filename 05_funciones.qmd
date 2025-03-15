@@ -1,0 +1,174 @@
+# Funciones
+
+Como se estableció anteriormente, en **R**, las funciones son bloques de código reutilizables que realizan una tarea específica. Toman unos valores de entrada o `argumentos`, ejecutan una serie de operaciones y devuelven un resultado. Las funciones permiten organizar el código, evitar la repetición y facilitar el mantenimiento.
+
+## Estructura general de una función
+
+```{r echo=TRUE, eval=FALSE}
+
+nombre_funcion = function(argumento1, argumento2, ...) {
+  # Cuerpo de la función
+  # Operaciones con los argumentos
+  return(resultado)  # Devuelve un valor (opcional)
+}
+
+```
+
+
+**Componentes de una función:**
+
+- `Nombre de la función`: Identificador que se usa para llamar a la función.
+
+- `Argumentos`: Valores de entrada que la función necesita para operar. Pueden ser opcionales o tener valores por defecto.
+
+- `Cuerpo de la función`: Contiene las operaciones que se ejecutan cuando se llama a la función.
+
+- `Valor de retorno`: El resultado que devuelve la función (usualmente usando la función *return()*). Si no se especifica, la función devuelve el valor de la última expresión evaluada.
+
+**Ventajas de utilizar funciones (Wickham, 2024)**
+
+- Se puede dar a la función un nombre evocador que hará el código más fácil de entender.
+
+- A medida que cambien los requerimientos, solo se necesitará cambiar el código en un solo lugar, en vez de en varios lugares.
+
+- Se eliminan las probabilidades de errores accidentales al copiar y pegar (por ej., al actualizar el nombre de una variable en un lugar, pero no en otro).
+
+**Ejemplo de una función básica**
+
+```{r echo=TRUE, eval=FALSE}
+
+multiplicar = function(a, b = 2) {
+  return(a * b)
+}
+multiplicar(5)  # Usa b = 2 por defecto
+
+multiplicar(5, 3)
+
+```
+
+
+**Funciones anónimas**
+
+Son funciones sin nombre que se definen y usan directamente.
+
+
+```{r echo=TRUE, eval=FALSE}
+
+(function(x) x^2)(3)  # ¿Qué valor devuelve?
+
+```
+
+**Funciones como objetos**
+
+Las funciones pueden asignarse a variables, pasarse como argumentos a otras funciones o devolverse como resultados.
+
+```{r echo=TRUE, eval=FALSE}
+
+operacion = multiplicar
+operacion(2, 3)  
+
+```
+
+
+:::callout-note
+## Nota
+
+Las variables definidas dentro de una función son locales y no afectan el entorno global.
+
+:::
+
+## Estructuras de control
+
+### Estructuras de control en R: `if` y `for`
+
+En R, las estructuras de control permiten manejar el flujo de ejecución del código. Dos de las más comunes son las estructuras condicionales (`if`) y los bucles (`for`). A continuación, se describe su uso y se proporcionan ejemplos básicos.
+
+#### Estructura condicional `if`
+
+La estructura `if` se utiliza para ejecutar un bloque de código si se cumple alguna condición específica. Su sintaxis básica es:
+
+```{r echo=TRUE, eval=FALSE}
+if (condición) {
+  # Bloque de código que se ejecuta si la condición es verdadera
+}
+```
+
+Si la condición es verdadera (`TRUE`), se ejecuta el bloque de código dentro del `if`. En caso contrario, no se ejecuta.
+
+**Ejemplo:**
+
+```{r echo=TRUE, eval=FALSE}
+x = 10
+
+if (x > 5) {
+  print("x es mayor que 5")
+}
+
+```
+
+También es posible agregar una cláusula `else` para manejar el caso en que la condición no se cumpla:
+
+```{r echo=TRUE, eval=FALSE}
+if (x > 15) {
+  print("x es mayor que 15")
+} else {
+  print("x no es mayor que 15")
+}
+```
+
+
+#### Bucles `for`
+
+El bucle `for` se utiliza para repetir un bloque de código un número específico de veces, iterando sobre una secuencia de valores. Su sintaxis básica es:
+
+```{r echo=TRUE, eval=FALSE}
+
+for (variable in secuencia) {
+  # Bloque de código que se ejecuta en cada iteración
+}
+```
+
+En cada iteración, la variable toma un valor de la secuencia, y el bloque de código se ejecuta con ese valor.
+
+**Ejemplo:**
+
+```{r echo=TRUE, eval=FALSE}
+
+for (i in 1:5) {
+  print(paste("Iteración:", i))
+}
+
+```
+
+También es posible iterar sobre vectores o listas:
+
+```{r echo=TRUE, eval=FALSE}
+frutas = c("manzana", "banana", "naranja")
+
+for (fruta in frutas) {
+  print(fruta)
+}
+```
+
+
+#### Combinación de `if` y `for`
+
+Las estructuras `if` y `for` pueden combinarse para crear lógicas más complejas. Por ejemplo, se puede usar un `if` dentro de un bucle `for` para realizar acciones condicionales en cada iteración.
+
+**Ejemplo:**
+
+```{r}
+
+numeros = c(1, 3, 5, 7, 10)
+
+for (num in numeros) {
+  if (num %% 2 == 0) {
+    print(paste(num, "es par"))
+  } else {
+    print(paste(num, "es impar"))
+  }
+}
+```
+## Actividad integradora
+
+En clase se realizará una actividad de integración de contenidos.
