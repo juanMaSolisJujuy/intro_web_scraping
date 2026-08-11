@@ -3,13 +3,15 @@
     "intro.html": "cfeb34b3"
   },
   "index.qmd": {
-    "index.html": "d5eb701e"
+    "index.html": "d5eb701e",
+    "index.tex": "f1e532a2"
   },
   "summary.qmd": {
     "summary.html": "77a9570a"
   },
   "references.qmd": {
-    "references.html": "14f40d07"
+    "references.html": "14f40d07",
+    "references.tex": "f25f13ce"
   },
   "01_intro.qmd": {
     "01_intro.html": "9999cba7"
@@ -27,10 +29,12 @@
     "03_tidyverse.html": "6adb1b0d"
   },
   "04_web_scrap_pag_est.qmd": {
-    "04_web_scrap_pag_est.html": "c11cbf7d"
+    "04_web_scrap_pag_est.html": "c11cbf7d",
+    "04_web_scrap_pag_est.tex": "6de555ca"
   },
   "03_normas_etica.qmd": {
-    "03_normas_etica.html": "0b54e281"
+    "03_normas_etica.html": "0b54e281",
+    "03_normas_etica.tex": "96d70950"
   },
   "05_funciones.qmd": {
     "05_funciones.html": "69b9cae3"
@@ -54,21 +58,26 @@
     "03_marco_teorico_quarto.html": "540fbb6a"
   },
   "04_probabilidad.qmd": {
-    "04_probabilidad.html": "6c443171"
+    "04_probabilidad.html": "6c443171",
+    "04_probabilidad.tex": "f6929101"
   },
   "001_prologo.qmd": {
     "001_prologo.html": "6e9e7914"
   },
   "01_pautas.qmd": {
-    "01_pautas.html": "7104ece5"
+    "01_pautas.html": "7104ece5",
+    "01_pautas.tex": "11cedaeb"
   },
   "02_competencias.qmd": {
-    "02_competencias.html": "d5726ab7"
+    "02_competencias.html": "d5726ab7",
+    "02_competencias.tex": "09c66c35"
   },
   "03_intro_R.qmd": {
-    "03_intro_R.html": "06df3e80"
+    "03_intro_R.html": "06df3e80",
+    "03_intro_R.tex": "51d802d4"
   },
   "herramientas.qmd": {
-    "herramientas.html": "1e6103c9"
+    "herramientas.html": "1e6103c9",
+    "herramientas.tex": "df58a965"
   }
 }
