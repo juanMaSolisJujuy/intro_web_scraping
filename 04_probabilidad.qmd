@@ -1,0 +1,298 @@
+
+
+# Probabilidad {#sec-probabilidad}
+
+La probabilidad es una medida de la **incertidumbre** en el campo de los sucesos **aleatorios**, que son aquellos eventos de los que no se puede tener plena certeza acerca de sus posibles resultados.
+
+Su ámbito de aplicación es vasto, pero, sobre todo, constituye la base sobre la que se fundamentan muchas de las técnicas de estadística inferencial y estimaciones probabilísticas.
+
+El objetivo final de esta unidad es fijar un **consenso** o **marco conceptual** desde el cual abordar las unidades siguientes.
+
+::: callout-note
+#### Guía de cátedra
+
+Este capítulo corresponde al **Capítulo 4** del libro *"Apuntes de Bioestadística. Con ejercicios resueltos"*. Te sugerimos leerlo mientras avanzas con estos apuntes.
+:::
+
+## Conceptos
+
+### Proceso aleatorio
+
+Se llama **proceso aleatorio** o **estocástico** a todo mecanismo, procedimiento o fenómeno que genera resultados regidos por las leyes de la probabilidad. A diferencia de un proceso determinista, donde las condiciones iniciales fijan un resultado único y predecible, en un proceso aleatorio el resultado está sujeto a la **incertidumbre**.
+
+Formalmente, este proceso se modela mediante:
+
+- Un **espacio muestral** ($\Omega$), que es el conjunto de todos los resultados posibles del proceso estocástico.
+- Una **medida de probabilidad** ($P$) que asigna un valor numérico entre 0 y 1 a cada subconjunto de resultados (eventos), como medida de la certidumbre de que ocurran.
+
+Cuando el proceso aleatorio consiste en un procedimiento en condiciones controladas de ciertos factores, se denomina **experimento aleatorio**. En este contexto, la variabilidad observada se atribuye a factores no controlados o inherentemente aleatorios, y se modela mediante **variables aleatorias**.
+
+**Ejemplos de procesos aleatorios:**
+
+- **Lanzamiento de una moneda**: Secuencia de lanzamientos donde el resultado (cara o cruz) es impredecible, aunque su distribución de probabilidad es conocida.
+
+- **Diseño de experimentos**: Evaluación del efecto de diferentes dosis de fertilizante en el rendimiento de un cultivo, modelado como $Y_{ij} = \mu + \tau_{j} + \epsilon_{ij}$, donde $\epsilon_{ij}$ captura la variabilidad no explicada.
+
+- **Análisis de supervivencia**: Medición del tiempo hasta que una muestra se vuelve rancia o un organismo muere, modelado mediante funciones de supervivencia $S(t) = P(T > t)$.
+
+- **Muestreo e inferencia**: Determinación de la concentración media de un metal pesado en una laguna a partir de un número limitado de muestras.
+
+- **Factores ambientales y especies**: Comparación de cómo influyen diferentes factores ambientales sobre la presencia de especies de insectos en una región.
+
+### Espacio y puntos muestrales
+
+El **espacio muestral**, también llamado **universo**, es el conjunto de **todos** los resultados posibles de un proceso estocástico. Usualmente es denotado con la letra griega $\Omega$ (Omega).
+
+Se denomina **punto muestral** a cada uno de los elementos del espacio muestral. Usualmente se lo denota como $\omega$.
+
+Según la naturaleza de los resultados, los espacios muestrales pueden ser:
+
+- **Finito numerable**: Ejemplos como la germinación de una semilla ($\Omega = \{no\ germina, germina\}$)
+- **Infinito numerable**: Como el número de lanzamientos hasta obtener cara ($\Omega = \{C, XC, XXC, \ldots\}$)
+- **Infinito no numerable**: Como la humedad relativa del aire ($\Omega = [0,100]$)
+
+Se suele notar con $\#\Omega$, $N(\Omega)$ o $|\Omega|$ al **número de elementos** de $\Omega$.
+
+### Eventos
+
+Se llama **evento** o **suceso** a cualquier *subconjunto* de $\Omega$. Para denotar eventos se emplean las letras mayúsculas **A, B, C,..**.
+
+- Si $\#E = 1$ se lo llama **evento simple**
+- Si $\#E \geq 2$ se lo llama **evento compuesto**
+- El propio $\Omega$ se llama **evento cierto**
+- El conjunto vacío $\varnothing$ se llama **evento imposible**
+
+::: callout-example
+#### Ejemplo: Condiciones meteorológicas
+
+Si se define $\Omega_{T} = \{frío, templado, caluroso\}$ para la **temperatura**,  $\Omega_{N} = \{despejado, seminublado, nublado\}$ para la **nubosidad** y $\Omega=\Omega_{T}\times\Omega_{N}$, siendo
+
+$$
+\begin{aligned}
+\Omega = \{&
+(\text{frío}, \text{despejado}),
+(\text{frío}, \text{semicubierto}),
+(\text{frío}, \text{nublado}),\\
+&(\text{templado}, \text{despejado}),
+(\text{templado}, \text{semicubierto}),
+(\text{templado}, \text{nublado}),\\
+&(\text{caluroso}, \text{despejado}),
+(\text{caluroso}, \text{semicubierto}),
+(\text{caluroso}, \text{nublado})
+\}.
+\end{aligned}
+$$
+
+luego,
+
+- **"Día frío"** es un evento compuesto: $E = \{(frío,despejado), (frío,seminublado), (frío,nublado)\}$
+- **"Día frío y nublado"** es un evento simple: $E = \{(frío,nublado)\}$
+:::
+
+### Relaciones entre eventos
+
+- $A \cap B$: evento **"A y B ocurren simultáneamente"**
+- $A \cup B$: evento **"ocurre al menos uno de los dos"**
+- Si $A \cap B = \varnothing$: **A y B son mutuamente excluyentes** (no pueden ocurrir simultáneamente)
+- $\overline{A}$: **"no ocurre A"** (complemento)
+- $A - B = A \cap \overline{B}$: **"ocurre A, pero no B"**
+- Si $A \subseteq B$: **siempre que ocurre A, ocurre B**
+
+::: callout-note
+#### Nota
+
+En este curso, se considera **evento compuesto** a aquellos que surjan de la **unión** o **intersección** de dos o más eventos. Un evento es **simple** si su tamaño es igual a 1.
+:::
+
+### Diagrama de árbol
+
+Un diagrama de árbol es una representación gráfica que permite visualizar todos los resultados posibles de un experimento compuesto por dos o más etapas o variables.
+
+**Elementos principales:**
+
+- Nodo raíz: punto de partida
+- Ramas: cada resultado posible de una variable
+- Nodos intermedios: combinaciones parciales
+- Hojas: eventos simples que forman el espacio muestral
+
+Cuando los eventos son equiprobables, la probabilidad de cada hoja se obtiene multiplicando las probabilidades a lo largo de la rama que la genera.
+
+Los diagramas de árbol son especialmente útiles para:
+
+- Identificar eventos compuestos (uniones e intersecciones)
+- Reconocer eventos mutuamente excluyentes
+- Verificar que el espacio muestral es exhaustivo
+
+::: callout-note
+#### Nota
+
+Consultar el inciso de **diagrama del árbol** en el libro de cátedra `Apuntes de Bioestadística. Con ejercicios resueltos.`
+
+:::
+
+## Probabilidad y axiomas
+
+Dado un proceso aleatorio con un determinado $\Omega$, se llama **probabilidad** a una **función** que asigna a cada evento $E$ en $\Omega$ un número **real** en el intervalo **[0, 1]**, llamado **probabilidad de E** o **P(E)**.
+
+### Axiomas de Kolmogorov
+
+1. $P(\Omega) = 1$
+2. $P(E) \geq 0$
+3. Si $E_1$ y $E_2$ son eventos mutuamente excluyentes, entonces $P(E_1 \cup E_2) = P(E_1) + P(E_2)$
+
+### Conceptos de probabilidad
+
+**Concepto clásico (Laplace)**
+
+$$P(E) = \frac{\#E}{\#\Omega}$$
+
+::: callout-warning
+#### Limitación
+
+La definición clásica supone una condición de **equiprobabilidad** de eventos, es decir, todos los eventos definidos son igualmente probables. Por lo tanto, tiene un campo de aplicación restringido, sobre todo en el ámbito de las ciencias naturales.
+:::
+
+**Concepto frecuentista**
+
+$$P(E) = \lim_{N \to \infty} \frac{n_E}{N}$$
+
+donde $n_E$ es el número de veces que $E$ ocurre en $N$ repeticiones independientes.
+
+::: callout-note
+#### Nota
+
+La probabilidad frecuentista se trata de una probabilidad **aproximada** o **asintótica**, es decir, que puede aproximarse al verdadero valor de la probabilidad del evento para valores suficientemente grandes de $N$.
+:::
+
+**Concepto bayesiano**
+
+Aborda la probabilidad como una medida del **grado de creencia**, que se actualiza a medida que se incorpora nueva evidencia.
+
+$$P(\theta|\text{datos}) = \frac{P(\text{datos}|\theta) \cdot P(\theta)}{P(\text{datos})}$$
+
+## Variables aleatorias
+
+Se llama **variable aleatoria (v.a.)** a cualquier función que asigne a cada elemento de $\Omega$ un valor en el dominio de los números reales asociado a una probabilidad:
+
+$$X:\Omega \rightarrow \mathbb{R}$$
+
+con función de distribución acumulada:
+
+$$F(x) = P(X \leq x)$$
+
+### Tipos de variables aleatorias
+
+- **Discreta**: Toma valores aislados (ej: número de individuos, conteos)
+- **Continua**: Toma cualquier valor en un intervalo (ej: concentración, peso, altura)
+
+::: callout-tip
+#### Nota
+
+Por definición, cualquier variable aleatoria asume un valor **numérico**, definido a partir de la característica sobre la cual se aplica. No basta conocer los valores que conforman su espacio muestral, sino también sus probabilidades asociadas.
+:::
+
+## Probabilidad condicional
+
+Dados dos eventos $E_1$ y $E_2$, la **probabilidad condicional de $E_1$ dado que ocurrió $E_2$** es:
+
+$$P(E_1|E_2) = \frac{P(E_1 \cap E_2)}{P(E_2)}, \quad \forall P(E_2) \neq 0$$
+
+::: callout-example
+#### Ejemplo conceptual: Tasa de germinación
+
+Si se sabe que una semilla proviene de un lote con alta calidad ($E_2$), la probabilidad de que germine ($E_1$) podría ser diferente a la probabilidad de germinación en la población general.
+
+$$P(\text{germinar}|\text{lote de calidad}) = \frac{P(\text{germinar} \cap \text{lote de calidad})}{P(\text{lote de calidad})}$$
+:::
+
+## Independencia de eventos
+
+Dos eventos $E_1$ y $E_2$ son **independientes** si se cumple:
+
+$$P(E_1 \cap E_2) = P(E_1) \cdot P(E_2)$$
+
+La probabilidad de ocurrencia de uno de los eventos no afecta la probabilidad de ocurrencia del otro.
+
+## Operaciones lógicas con probabilidades
+
+### Regla aditiva
+
+- Para eventos mutuamente excluyentes:
+  $$P(E_1 \cup E_2) = P(E_1) + P(E_2)$$
+
+- Para eventos no excluyentes (Regla Aditiva General):
+  $$P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 \cap E_2)$$
+
+### Regla multiplicativa
+
+- Para eventos independientes:
+  $$P(E_1 \cap E_2) = P(E_1) \cdot P(E_2)$$
+
+- Para eventos dependientes:
+  $$P(E_1 \cap E_2) = P(E_1) \cdot P(E_2|E_1) = P(E_2) \cdot P(E_1|E_2)$$
+
+## Distribuciones de probabilidad
+
+Se llama **distribución de probabilidades** al conjunto formado por los **valores de la variable** y sus **probabilidades asociadas**.
+
+### Variables aleatorias discretas
+
+**Función de probabilidad de masa (f.p.m.):**
+
+$$p(x) = P(X = x), \quad \forall x \in X$$
+
+**Función de distribución acumulada (f.d.a.):**
+
+$$F(x) = P(X \leq x) = \sum_{i=-\infty}^{x} p(x_i)$$
+
+**Esperanza y varianza:**
+
+$$E(X) = \sum_{x \in X} x \cdot p(x)$$
+
+$$Var(X) = E(X^2) - E(X)^2$$
+
+::: callout-note
+#### Nota
+
+A las funciones de probabilidad estimadas a partir de datos observados se las suele denominar **funciones de distribución acumulada empírica (ECDF)**. Proporcionan estimaciones aproximadas de probabilidad cuando el número de observaciones es suficientemente grande.
+:::
+
+### Variables aleatorias continuas
+
+Para una v.a. continua:
+
+$$P(X = x) = 0, \quad \forall x \in \mathbb{R}$$
+
+$$F(x) = P(X \leq x) = \int_{-\infty}^{x} f(x)dx$$
+
+Donde $f(x)$ es denominada **función de densidad**.
+
+**Esperanza y varianza:**
+
+$$E(X) = \int_{-\infty}^{\infty} x \cdot f(x)dx$$
+
+$$Var(X) = E(X^2) - E(X)^2$$
+
+## Conexión con el resto del libro
+
+La unidad de Probabilidad (Capítulo 4) sienta las bases para:
+
+- **Capítulo 5**: Distribuciones de probabilidad discretas (Binomial, Poisson)
+- **Capítulo 6**: Distribuciones de probabilidad continuas (Normal, Uniforme)
+- **Capítulo 7-9**: Inferencia estadística (estimación y pruebas de hipótesis)
+- **Capítulo 10**: Correlación y regresión
+- **Capítulo 11**: Pruebas de distribución libre (no paramétricas)
+
+## Estrategias de estudio
+
+1. **Familiarízate con la notación**: $\Omega$, $P(E)$, $P(E_1|E_2)$, etc.
+2. **Distingue entre tipos de variables**: discretas vs. continuas
+3. **Practica con diagramas de árbol**: son útiles para visualizar espacios muestrales complejos
+4. **Comprende la diferencia entre eventos mutuamente excluyentes e independientes**: son conceptos distintos que suelen confundirse
+5. **Relaciona la probabilidad con la inferencia estadística**: la probabilidad es la base para cuantificar la incertidumbre en las estimaciones
+
+::: callout-note
+#### Para profundizar
+
+Consulta los **ejemplos integradores** del Capítulo 4 del libro para ver aplicaciones prácticas de todos los conceptos en contextos de ciencias biológicas y ambientales.
+:::

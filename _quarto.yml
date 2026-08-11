@@ -9,24 +9,23 @@ filters:
 #      output-dir: docs
 
 book:
-  title: "Introducción a Web Scraping para el análisis estadístico con R"
+  title: "| BIOSTADÍSTICA"
+  subtitle: "Universidad Nacional de Jujuy | Facultad de Ciencias Agrarias | Lic. en Ciencias Biológicas"
   author: "Juan Manuel Solís"
-  date: "03/05/2025"
+  date: "08/11/2026"
   chapters:
     - index.qmd
-    - 01_intro.qmd
-    - 02_tidyverse.qmd
-    - 03_normas_etica.qmd
-    - 04_web_scrap_pag_est.qmd
-    - 05_funciones.qmd
-    - R.qmd
+    - 01_pautas.qmd
+    - 02_competencias.qmd
+    - 03_intro_R.qmd
+    - herramientas.qmd
     - references.qmd
   page-footer: 
     center: Cátedra de Bioestadística y Diseño Experimental | Facultad de Ciencias Agrarias | Universidad Nacional de Jujuy 
     right: |
       ![](logounju.png){ width=80px }
       ![](logofca.png){ width=80px }
-    left: Año 2025
+    left: Año 2026
     
 bibliography: references.bib
 

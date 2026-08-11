@@ -1,12 +1,16 @@
 # Referencias {.unnumbered}
 
 
-- [R para la Ciencias de Datos.](https://r4ds.hadley.nz/webscraping)
+- **Apuntes de Bioestadística. Con ejercicios resueltos.** Guía práctica de cátedra.
 
-- [Introducción a Web Scraping usando R](https://programminghistorian.org/es/lecciones/introduccion-al-web-scraping-usando-r)
+- Lepš, J., & Šmilauer, P. (2020). Biostatistics with R: An introductory guide for field biologists. Cambridge University Press.
 
-- [MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website)
+- Balzarini, M., Di Rienzo, J., Tablada, M., Gonzalez, L., Bruno, C., Córdoba, M., Robledo, W., & Casanoves, F. (s.f.). Bioestadística: Primera edición. [Editorial desconocida].
 
-- [Sitio oficial de rvest](https://rvest.tidyverse.org/)
+- Weaver, K. F., Morales, V. C., Dunn, S. L., Godde, K., & Weaver, P. F. (2018). An introduction to statistical analysis in research: With applications in the biological and life sciences. John Wiley & Sons.
+
+- Irizarry, R. A., & Love, M. I. (2021, March 17). Data analysis for the life sciences (Version 2021-03-17). Leanpub.
+
+- Curry, E. (2020). Introduction to bioinformatics with R: A practical guide for biologists. CRC Press, Taylor & Francis Group.
 
 

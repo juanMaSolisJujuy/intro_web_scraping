@@ -37,5 +37,38 @@
   },
   "R.qmd": {
     "R.html": "2f19fe01"
+  },
+  "02_funciones.qmd": {
+    "02_funciones.html": "b6856f07"
+  },
+  "03_R.qmd": {
+    "03_R.html": "1b0393f6"
+  },
+  "01_prologo.qmd": {
+    "01_prologo.html": "afc034c1"
+  },
+  "02_intro_R.qmd": {
+    "02_intro_R.html": "460d27c5"
+  },
+  "03_marco_teorico_quarto.qmd": {
+    "03_marco_teorico_quarto.html": "540fbb6a"
+  },
+  "04_probabilidad.qmd": {
+    "04_probabilidad.html": "6c443171"
+  },
+  "001_prologo.qmd": {
+    "001_prologo.html": "6e9e7914"
+  },
+  "01_pautas.qmd": {
+    "01_pautas.html": "7104ece5"
+  },
+  "02_competencias.qmd": {
+    "02_competencias.html": "d5726ab7"
+  },
+  "03_intro_R.qmd": {
+    "03_intro_R.html": "06df3e80"
+  },
+  "herramientas.qmd": {
+    "herramientas.html": "1e6103c9"
   }
 }
